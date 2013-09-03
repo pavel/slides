@@ -1,0 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Aldrich);
+body {
+    font-family: 'Aldrich', sans-serif;
+}
+.slide {
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    transition: all 1s ease;
+}
+.slide.current {
+    left: 0;
+}
+.slide > header {
+    margin-top: 30px;
+    font-size: 2em;
+    text-align: center;
+    border-bottom: 2px solid #eee;
+}
+.slide > p {
+    margin-left: 10px;
+    text-align: center;
+}
