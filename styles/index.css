@@ -1,6 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Aldrich);
 body {
     font-family: 'Aldrich', sans-serif;
+    overflow: hidden;
+}
+a {
+    color: #06a;
+}
+a:hover {
+    color: #09f;
+}
+a > img {
+    border: none;
+}
+a.disabled > img {
+    opacity: 0.4;
+    cursor: default;
 }
 .slide {
     position: absolute;
@@ -10,6 +24,7 @@ body {
     height: 100vh;
     z-index: -1;
     transition: all 1s ease;
+    margin-top: 20vh;
 }
 .slide.current {
     left: 0;
@@ -23,4 +38,10 @@ body {
 .slide > p {
     margin-left: 10px;
     text-align: center;
+}
+footer img {
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+    margin-top: -3px;
 }
