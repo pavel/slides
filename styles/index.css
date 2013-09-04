@@ -12,9 +12,11 @@ a:hover {
 a > img {
     border: none;
 }
+a.disabled {
+    cursor: default;
+}
 a.disabled > img {
     opacity: 0.4;
-    cursor: default;
 }
 .slide {
     position: absolute;
