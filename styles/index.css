@@ -1,10 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Aldrich);
+@import url(http://fonts.googleapis.com/css?family=Ruluko);
 body {
-    font-family: 'Aldrich', sans-serif;
+    font-family: 'Ruluko', sans-serif;
     overflow: hidden;
 }
 a {
     color: #06a;
+    outline: none;
 }
 a:hover {
     color: #09f;
