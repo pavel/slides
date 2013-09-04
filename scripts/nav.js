@@ -1,38 +1,31 @@
 (function ($, router) {
+    var next, prev,
+        current = $('.slide.current'),
+        next_btn = $('#next'),
+        prev_btn = $('#prev');
     router('go/:slide', function (slide) {
         var slide = $('#' + slide);
-        $('.slide.current').removeClass('current');
-        slide.addClass('current');
-        if (slide.next('.slide').length) {
-            $('#next').removeClass('disabled');
+        current.removeClass('current');
+        prev = slide.prev('.slide');
+        current = slide.addClass('current');
+        next = slide.next('.slide');
+        if (next.length) {
+            next_btn.removeClass('disabled');
         } else {
-            $('#next').addClass('disabled');
+            next_btn.addClass('disabled');
         }
-        if (slide.prev('.slide').length) {
-            $('#prev').removeClass('disabled');
+        if (prev.length) {
+            prev_btn.removeClass('disabled');
         } else {
-            $('#prev').addClass('disabled');
+            prev_btn.addClass('disabled');
         }
     });
     router('', function () {
         router('go/home');
     });
-    function next() {
-        var current = $('.slide.current'),
-            next = current.next('.slide');
-        if (next.length) router('go/' + next.attr('id'));
-    }
-    function prev() {
-        var current = $('.slide.current'),
-            prev = current.prev('.slide');
-        if (prev.length) router('go/' + prev.attr('id'));
-    }
-    function handler(el) {
-        return function () { el.trigger('click'); };
-    }
-    $('footer').on('click', '#next:not(".disabled")', next);
-    $('footer').on('click', '#prev:not(".disabled")', prev);
-    Mousetrap.bind('right', handler($('#next')));
-    Mousetrap.bind('left', handler($('#prev')));
+    $('footer').on('click', '#next:not(".disabled")', function () { router('go/' + next.attr('id')); });
+    $('footer').on('click', '#prev:not(".disabled")', function () { router('go/' + prev.attr('id')); });
+    Mousetrap.bind('right', function () { next_btn.trigger('click'); });
+    Mousetrap.bind('left', function () { prev_btn.trigger('click'); });
     Mousetrap.bind('ctrl+alt+h', function () { router('go/home'); });
 }(jQuery, routie));
