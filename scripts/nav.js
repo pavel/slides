@@ -14,6 +14,9 @@
             $('#prev').addClass('disabled');
         }
     });
+    router('', function () {
+        router('go/home');
+    });
     function next() {
         var current = $('.slide.current'),
             next = current.next('.slide');
